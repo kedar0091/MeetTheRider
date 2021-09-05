@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Index</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+</head>
+<body>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<!-- success message -->
+				<div th:if="${param.success}">
+					<div class="alert alert-info">You have successfully
+						registered to our website</div>
+				</div>
+
+				<div align="center">
+					<h1>User Registeration Form</h1>
+					<br>
+				</div>
+
+				<form th:action="@{/registration}" method="post" th:object="${user}">
+
+					<div>
+						<table align="center">
+							<tr>
+								<td>User Name:</td>
+								<td><input th:type="text" th:field="*{userName}"
+									placeholder="Enter Name"></td>
+							</tr>
+
+							<tr>
+								<td>Password:</td>
+								<td><input th:type="password" th:field="*{userPassword}"
+									placeholder="Enter Password"></td>
+							</tr>
+
+							<tr>
+								<td>Mobile:</td>
+								<td><input th:type="text" th:field="*{userMobile}"
+									placeholder="Enter Mobile"></td>
+							</tr>
+
+							<tr>
+								<td>Email:</td>
+								<td><input th:type="text" th:field="*{useEmail}"
+									placeholder="Enter Email"></td>
+							</tr>
+
+							<tr>
+								<td>Address:</td>
+								<td><textarea th:field="*{userAddress}" rows="4" cols="50"></textarea></td>
+							</tr>
+
+							<tr>
+								<td>Choose Your Gender:</td>
+								<td><label for="male">Male</label> <input th:type="radio"
+									th:field="*{userGender}" id="male" value="male" checked>
+									<label for="female">Female</label> <input th:type="radio"
+									th:field="*{userGender}" id="female" value="female"> <label
+									for="other">Other</label> <input th:type="radio"
+									th:field="*{userGender}" value="other" id="gen"></td>
+							</tr>
+
+							<tr>
+								<td>Enter Your DOB :</td>
+								<td><input th:type="date" th:field="*{userDob}" id="age"></td>
+							</tr>
+
+							<tr>
+								<td>Enter your Licenece Number:</td>
+								<td><input th:type="text" th:field="*{userLicenceNo}"
+									placeholder="License Number " id="number"></td>
+							</tr>
+
+							<tr>
+								<td>Enter your Bike Number:</td>
+								<td><input th:type="text" th:field="*{userBikeNo}"
+									placeholder="Bike Number " id="bnumber"></td>
+							</tr>
+
+							<tr>
+								<td>Enter your Aadhar Number:</td>
+								<td><input th:type="text" th:field="*{userAadhar}"
+									placeholder="aadhar Number " id="anumber"></td>
+							</tr>
+
+						</table>
+					</div>
+					<div align="center">
+						<br>
+						<button class="btn btn-primary" type="submit">Submit form</button>
+						<button class="btn btn-primary"><a th:href="@{/signin}">Login</a></button>
+					</div>
+				</form>
+			</div>
+
+
+
+		</div>
+	</div>
+</body>
+</html>
